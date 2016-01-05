@@ -29,17 +29,28 @@ def process_files(inputdir, outputdir):
 
 def get_title(note_body):
     title_regex = re.compile("<title>(.+?)</title>")
-    return title_regex.search(note_body).group(1)
+    matches = title_regex.search(note_body);
+    if matches:
+        return matches.group(1)
+    else:
+       return "No Tiitle"
 
 
 def get_created_date(note_body):
-    title_regex = re.compile("<create-date>(.+?)</create-date>")
-    return title_regex.search(note_body).group(1)
-
+    created_date_regex = re.compile("<create-date>(.+?)</create-date>")
+    matches = created_date_regex.search(note_body);
+    if matches:
+        return matches.group(1)
+    else:
+       return "No Created Date"
 
 def get_updated_date(note_body):
-    title_regex = re.compile("<last-change-date>(.+?)</last-change-date>")
-    return title_regex.search(note_body).group(1)
+    updated_date_regex = re.compile("<last-change-date>(.+?)</last-change-date>")
+    matches = updated_date_regex.search(note_body);
+    if matches:
+        return matches.group(1)
+    else:
+       return "No Updated Date"
 
 
 def tomboy_to_enex_date(tomboy_date):

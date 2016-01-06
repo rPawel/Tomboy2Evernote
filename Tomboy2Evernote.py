@@ -33,7 +33,7 @@ def get_title(note_body):
     if matches:
         return matches.group(1)
     else:
-       return "No Tiitle"
+       return "No Title"
 
 
 def get_created_date(note_body):
